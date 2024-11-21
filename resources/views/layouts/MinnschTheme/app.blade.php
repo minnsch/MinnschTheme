@@ -24,6 +24,7 @@
   <link href="{{ public_asset('/assets/frontend/css/styles.css') }}" rel="stylesheet"/>
   <link href="{{ public_asset('/minnsch/css/style.css')}}" rel="stylesheet"/>
   <link href="{{ public_mix('/assets/global/css/vendor.css') }}" rel="stylesheet"/>
+ 
   @yield('css')
   @yield('scripts_head')
   {{-- End of the required stuff in the head block --}}
@@ -93,7 +94,9 @@
     </footer>
     {{-- FOOTER END --}}
   </div>
-</body>
+
+@include('external_redirect_modal')
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 {{-- Start of the required tags block. Don't remove these or things will break!! --}}
 <script src="{{ public_mix('/assets/global/js/vendor.js') }}"></script>
@@ -122,4 +125,27 @@ with the EU Cookie Law https://privacypolicies.com/blog/eu-cookie-law
   });
 </script>
 {{-- End the required tags block --}}
+
+{{--
+Google Analytics tracking code. Only active if an ID has been entered
+You can modify to any tracking code and re-use that settings field, or
+just remove it completely. Only added as a convenience factor
+--}}
+@php
+$gtag = setting('general.google_analytics_id');
+@endphp
+@if($gtag)
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $gtag }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{{ $gtag }}');
+</script>
+@endif
+{{-- End of the Google Analytics code --}}
+
+</body>
 </html>
