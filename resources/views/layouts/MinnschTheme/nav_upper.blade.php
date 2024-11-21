@@ -10,6 +10,7 @@
         {{ Auth::user()->name_private }}
         @endif
         </a>
+
         <div class="dropdown-menu dropdown-menu-right">
 
         <a class="dropdown-item" href="{{ route('frontend.profile.index') }}">
@@ -21,10 +22,19 @@
         <i class="bi bi-person-fill-gear"></i>&nbsp;&nbsp;@lang('common.administration')
         </a>
         @endability
+
+        @if(Auth::check())
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ url('/logout') }}">
-        <i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;@lang('common.logout')
+        <i class="bi bi-box-arrow-right"></i>&nbsp;&nbsp;@lang('common.logout')
         </a>
         </div>
+        @else
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ url('/login') }}">
+        <i class="bi bi-box-arrow-in-right"></i>&nbsp;&nbsp;@lang('common.login')
+        </a>
+        </div>
+        @endif
     </li>
 </ul>

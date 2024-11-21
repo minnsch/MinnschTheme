@@ -13,7 +13,7 @@
   <meta name="api-key" content="{!! Auth::check() ? Auth::user()->api_key: '' !!}">
   <meta name="csrf-token" content="{!! csrf_token() !!}">
 
-  <link rel="shortcut icon" type="image/png" href="{{ public_asset('/assets/img/favicon.png') }}"/>
+  <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/YBzWqkG/favicon.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
@@ -33,8 +33,8 @@
 {{-- NAVBAR --}}
   <nav id="Navbar" class=navbar fixed-top navbar-expand-lg bg-light>
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="<!--LINK HERE-->" alt="ANA Virtual Group Logo" style="max-height: 250px;">
+      <a class="navbar-brand" href="{{ url('/')}}">
+        <img src="https://i.ibb.co/d0f65Cw/Dashboard-Light.png" alt="ANA Virtual Group Logo" style="max-height: 250px;">
       </a>
       @include('nav_upper')
     </div>
