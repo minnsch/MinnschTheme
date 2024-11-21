@@ -30,14 +30,12 @@
 </head>
 <body>
 {{-- NAVBAR --}}
-  <nav id="Navbar" class=navbar fixed-top navbar-expand-lg bg-light>
+  <nav id="Navbar" class="navbar fixed-top navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{ url('/')}}">
         <img src="https://i.ibb.co/d0f65Cw/Dashboard-Light.png" alt="ANA Virtual Group Logo" style="max-height: 250px;">
       </a>
       @include('nav_upper')
-    </div>
-    <div class="container-fluid">
       @include('nav_bottom')
     </div>
   </nav>
@@ -59,7 +57,7 @@
           <!-- Logo Section -->
           <div class="col-md-4 text-center text-md-left mb-3 mb-md-0">
           <a href="/">
-              <img src="/assets/logo.png" style="max-width: 150px;" alt="Logo">
+              <img src="{{ public_asset('/minnsch/logo.png')}}" style="max-width: 150px;" alt="Logo">
           </a>
           </div>
       
